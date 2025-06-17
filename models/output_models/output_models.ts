@@ -1,3 +1,9 @@
+// Timestamp string format
+type Timestamp = string;
+
+// Duration string format, e.g., "0:00:27.271497"
+type DurationString = string;
+
 // ---- Unique Identifiers ----
 type IDN = string;
 type CPE_IDN = string;
@@ -5,6 +11,19 @@ type CredentialID = string;
 type DataTypeID = string;
 type NetworkSegmentID = number;
 
+// ---- Global Container ----
+interface InfrastructureModel {
+  computers: { [idn: IDN]: Computer };
+  created: Timestamp;
+  credentials: { [credID: CredentialID]: Credential };
+  data: { [key: string]: any };
+  duration: DurationString;
+  firewall_rules: { [key: string]: FirewallRule };
+  network_segments: { [segment: NetworkSegmentID]: IDN[] };
+
+  total_employee_count: number;
+  version: string;
+}
 // ---- Data Storage ----
 interface SoftwareDataLink {
   [softwareIDN: IDN]: DataTypeID[];
@@ -58,9 +77,7 @@ interface Computer {
   used_hardware_quota: number;
 }
 
-// ---- Global Container ----
-interface InfrastructureModel {
-  network_segments: { [segment: NetworkSegmentID]: IDN[] };
-  computers: { [idn: IDN]: Computer };
-  credentials: { [credID: CredentialID]: Credential };
+interface FirewallRule {
+  // To be defined..
+  [key: string]: any;
 }
