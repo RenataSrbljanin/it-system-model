@@ -3,26 +3,32 @@ export type GroupID = string;
 export type ServiceID = string;
 export type DataType = string;
 
-// export type DataIDN =
-//   | "FinancialData:internal"
-//   | "FinancialData:banking"
-//   | "Emails"
-//   | "SourceCode:internet_banking";
+export type DataIDN =
+  | "FinancialData:internal"
+  | "FinancialData:banking"
+  | "Emails"
+  | "SourceCode:internet_banking";
 
-// export type PersonGroup =
-//   | "ceo:ceo"
-//   | "ceo:financial"
-//   | "finance:internal"
-//   | "finance:banking"
-//   | "developer:windows:senior"
-//   | "developer:windows:junior"
-//   | "admin";
+export type PersonGroup =
+  | "ceo:ceo"
+  | "ceo:financial"
+  | "finance:internal"
+  | "finance:banking"
+  | "developer:windows:senior"
+  | "developer:windows:junior"
+  | "admin";
 
-// export type EmployeeGroup =
-//   | "admin"
-//   | "ceo"
-//   | "developer:windows"
-//   | "finance";
+export type EmployeeGroup =
+  | "admin"
+  | "ceo"
+  | "developer:windows"
+  | "finance";
+
+export type EmployeeGroupsStructure = {
+  [group in EmployeeGroup]: {
+    [subgroup in Extract<PersonGroup, `${group}` | `${group}:${string}`>]?: number;
+  };
+};
 
 export enum DataPersonMode {
   PerPerson = "DataPersonMode.PerPerson",
