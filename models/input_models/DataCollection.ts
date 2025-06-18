@@ -4,14 +4,14 @@ import {
   DataServiceMode,
   DataSoftwareMode,
   GroupID,
-  IDN,
+  DataIDN,
   ServiceID
 } from './types';
 
 export class DataCollection {
   data_type: DataType;
   database_stored: boolean;
-  idn: IDN;
+  data_idn: DataIDN;
   person_mode: DataPersonMode;
   protection_level: number;
   service_mode: DataServiceMode;
@@ -22,7 +22,7 @@ export class DataCollection {
   constructor(data: any) {
     this.data_type = data.data_type;
     this.database_stored = data.database_stored;
-    this.idn = data.idn;
+    this.data_idn = data.data_idn;
     this.person_mode = data.person_mode;
     this.protection_level = data.protection_level;
     this.service_mode = data.service_mode;
