@@ -1,142 +1,154 @@
-<h1>IT System Model Editor</h1>
-<h2>Overview</h2>
-This application provides users with a platform for visualizing and editing IT system models represented as JSON files. It features secure login, a user-friendly dashboard for managing files, and a graphical editor for modifying system components.
+# 🧠 IT System Model Editor
 
-The interface consists of three main areas:
+## 📘 Overview
 
-Authentication (Login/Registration/Forgot Password)
+**IT System Model Editor** is a web application that allows users to securely upload, view, and edit IT infrastructure models represented as JSON files. Through an interactive graphical editor, users can visualize IT systems as networks of nodes and make changes directly in the browser.
 
-Dashboard (File management and uploading)
+The application consists of:
+- 🔐 Authentication (Login, Registration, Forgot Password)
+- 📁 Dashboard (File upload and management)
+- 🕸️ Graphical Model Editor (Network visualization and editing)
 
-Graphical Model Editor (Network visualization and editing)
+---
 
-<h2>Features</h2>
-✅ User Functionality
-Login/Registration with secure credentials and password reset functionality.
+## ✨ Features
 
-Upload one or more JSON files representing IT system models.
+- **User Authentication**  
+  Login, registration, and password reset with secure credential management (JWT-based).
+  
+- **JSON File Management**  
+  Upload one or more JSON files representing IT systems. Files are displayed in a sortable, filterable table.
 
-View uploaded files in a sortable, filterable table.
+- **Graphical Editor**  
+  Visualize JSON models as a network graph. Click on a node (e.g. a computer) to:
+  - Edit computer name
+  - View/edit installed software
+  - View/edit data related to the computer (as tables)
+  - Modify network connections
 
-Edit models through an interactive network graph:
+- **Real-Time Editing**  
+  All changes are automatically refreshed and can be saved to the server.
 
-Click on a node (computer) to view and edit its attributes.
+- **Download Options**  
+  Choose to download either the original or modified version of each model file.
 
-Edit includes hostname, installed software, data attributes, and network connections.
+- **User Feedback**  
+  Alerts are shown for successful saves, errors, warnings, and confirmations.
 
-Save changes to the server.
+---
 
-Download original or modified JSON files via a dropdown menu.
+## 👣 User Flows
 
-Real-time feedback through alerts for actions such as save success, errors, or delete confirmations.
+1. **Login or Register**
+   - Use email and password to log in.
+   - Register a new account if needed.
+   - Reset password via email if forgotten.
 
-<h2>User Flows</h2>
-<h3>Authentication</h3>
+2. **Manage JSON Files**
+   - Upload files using a dedicated button.
+   - View all uploaded files in a dynamic table.
+   - Sort, filter, delete, and download files.
 
-Register with name, email, and password.
+3. **Visual Edit Mode**
+   - Click on a file to open the visual editor.
+   - Interact with the graph to select nodes.
+   - Use the toolbox to update node attributes.
 
-Log in using email and password.
+---
 
-Reset password via email link if forgotten.
+## 🧩 UI Components
 
-<h3>Dashboard</h3>
+### Authentication
+- **Login**: Email, password, forgot password link, login button  
+- **Register**: Name, email, password, confirm password, register button  
+- **Reset Password**: Email input, send reset link button  
 
-Upload new JSON files.
+### Dashboard
+- JSON file upload button  
+- File list with sorting/filtering  
+- Delete button  
+- Download dropdown (original/modified version)
 
-View and manage uploaded files (sort, filter, delete, download).
+### Graphical Editor
+- Network visualization (nodes and links)  
+- Side panel for editing selected node:
+  - Hostname
+  - Installed software
+  - Attached data (as tables)
+  - Network connections
 
-<h3>Graph Editor</h3>
+### Alerts & Notifications
+- Save confirmation  
+- Error messages  
+- Delete confirmation  
+- File upload/download status
 
-Visual network display of the system.
+---
 
-Select and edit individual nodes (computers).
+## 🛠️ Technical Stack
 
-Toolbox for editing node details:
+### Frontend
+- **React** + **TypeScript**
+- **Reagraph** (graph visualization)
+- **SASS** for styling
 
-Computer name
+### Backend
+- **Flask** + **Flask-Smorest** (RESTful API framework)
+- **PostgreSQL** for database
+- **JWT** for user authentication
+- **Swagger UI** for API documentation
 
-Installed software
+### File Format
+- **JSON** files validated against **JSON Schema**
 
-Attached data (as tables)
+### Testing
+- **Pytest** (backend)
+- **Jest** (frontend)
 
-Network connections
+### Deployment
+- Hosted on **GitHub**
+- Supports **Chrome**, **Firefox**, and **Edge**
 
-<h2>UI Components (Mockup Overview)</h2>
-<ul>
-Login Form: email, password, forgot password link, login button
+### UI Design
+- **Responsive** (optimized for large screens)
+- **Accessible** with contrast-aware design and readable fonts
 
-Registration Form: name, email, password, confirm password, register button
+---
 
-Password Reset: email input, send reset link button
+## ⚙️ Non-Functional Requirements
 
-Dashboard View:
+- Support up to **20 models** and **200 nodes** simultaneously without noticeable slowdowns
+- Restrict access to JSON files to **authorized users only**
+- **Clear and readable UI** with accessible color schemes and typography
+- Designed for **scalability** across multiple users and servers
 
-JSON file upload button
+---
 
-File table with sorting/filtering
+## 🧾 ER Diagram
 
-Delete button
+> _To be added: Insert your ER diagram image or link here._
 
-Download dropdown (original/modified)
+The Entity-Relationship (ER) diagram defines relationships between:
+- Users
+- JSON Files
+- System Nodes (e.g., Computers, Software, Networks)
 
-Graphical Editor:
+---
 
-Network graph with nodes
+## 📄 License
 
-Side toolbox for editing:
+This project is under active development. Licensing and contribution guidelines will be defined in upcoming releases.
 
-Node name
+---
 
-Software list
+## 🚀 Future Plans
 
-Data tables
+- Multi-user collaboration on the same model  
+- Export visual graphs as images or PDFs  
+- Versioning system for model files  
+- Integration with external inventory APIs  
 
-Network connection editor
+---
 
-</li>Alerts: confirmation messages, error alerts, delete warnings
-</ul>
-<h2>Technical Stack</h2>
-Frontend
-Framework: React with TypeScript
+> For issues or suggestions, please [open an issue](https://github.com/your-repo/issues) or contact the development team.
 
-Graph Visualization: Reagraph
-
-Styling: SASS
-
-Backend
-Framework: Flask with Flask-Smorest (for structured REST APIs)
-
-Database: PostgreSQL
-
-Authentication: JWT-based login/registration
-
-<h2>Other Technologies</h2>
-File Format: JSON (validated via JSON Schema)
-
-API: RESTful, documented using Swagger UI
-
-Security: Input validation and restricted file access
-
-Testing: Pytest (backend), Jest (frontend)
-
-Deployment: GitHub
-
-Browser Support: Chrome, Firefox, Edge
-
-Responsive Design: Optimized for large screens
-
-<h2>Non-Functional Requirements</h2>
-Supports up to 20 models and 200 nodes simultaneously with no significant performance degradation.
-
-Only authorized users can access or modify uploaded JSON files.
-
-Clear and accessible UI with high contrast and legible fonts.
-
-Application should be scalable across multiple users and servers.
-
-<h2>Entity Relationship Diagram (ERD)</h2>
-[Insert your ER diagram image or link here if available]
-The ER diagram defines the relationships between users, files, and model components such as computers, software, and networks.
-
-<h2>License</h2>
-This project is under active development. Licensing and contribution guidelines to be defined.
