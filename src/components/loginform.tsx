@@ -58,8 +58,6 @@ export default function LoginForm({ onFlip }: Props) {
 
   return (
     <>
-      
-
       {/* Form container */}
       <div className={styles.container}>
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -113,6 +111,7 @@ export default function LoginForm({ onFlip }: Props) {
             </a>
           </div>
         </form>
+        
       </div>
     </>
   )
