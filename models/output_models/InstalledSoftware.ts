@@ -1,16 +1,24 @@
-import { IDN, CPE_IDN, CredentialID, DataTypeID, NetworkSegmentID } from './types';
+import {
+  IDN,
+  CPE_IDN,
+  CredentialID,
+  DataTypeID,
+  NetworkSegmentID,
+  COMPUTER_IDN,
+  SOFTWARE_IDN,
+} from "./types";
 
 export interface InstalledSoftware {
-  idn: IDN;
+  idn: SOFTWARE_IDN;
   idn_variant: string;
   cpe_idn: CPE_IDN;
-  computer_idn: IDN;
+  computer_idn: COMPUTER_IDN;
   compatible_data_types: DataTypeID[];
   accepts_credentials: CredentialID[];
   local_dependencies: IDN[];
   network_dependencies: IDN[];
   network_idn: NetworkSegmentID[];
-  installed_combination: [CPE_IDN, 'L' | 'N'][];
+  installed_combination: [CPE_IDN, "L" | "N"][];
   provides_services: string[];
   provides_network_services: string[];
   provides_user_services: string[];
